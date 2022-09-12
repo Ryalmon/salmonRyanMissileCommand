@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMissileController : MonoBehaviour
 {
-    public int missileSpeed = 2;
+    public int missileSpeed = 3;
 
     public int baseTarget;
 
@@ -19,6 +19,7 @@ public class EnemyMissileController : MonoBehaviour
     void Start()
     {
         baseTarget = Random.Range(1, 6);
+        StartCoroutine(MissileFuelTimer());
     }
 
     // Update is called once per frame
@@ -53,6 +54,12 @@ public class EnemyMissileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Destroy(gameObject);
+    }
+
+    IEnumerator MissileFuelTimer()
+    {
+        yield return new WaitForSeconds(15);
         Destroy(gameObject);
     }
 }
