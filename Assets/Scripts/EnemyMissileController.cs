@@ -18,7 +18,7 @@ public class EnemyMissileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        baseTarget = Random.Range(1, 6);
+        baseTarget = Random.Range(1, 7);
         StartCoroutine(MissileFuelTimer());
     }
 
